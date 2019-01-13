@@ -17,9 +17,9 @@ samples, guidance on mobile development, and a full API reference.
 
 ## 完成内容
 
-- [] 计数器示例
-- [] 路由管理
-- [] 包管理
-- [] 资源管理
-- [] 调试Flutter App
-- [] Dart线程模型及异常捕获
+- [ ] 计数器示例
+- [ ] 路由管理
+- [ ] 包管理
+- [ ] 资源管理
+- [ ] 调试Flutter App
+- [ ] Dart线程模型及异常捕获
