@@ -159,7 +159,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 Navigator.pushNamed(context, 'tip_widgets');
               },
             ),
-            RandomWordsWidget()
+            RandomWordsWidget(),
+            Image.asset('assets/images/10667077.jpeg')
           ],
         ),
       ),
