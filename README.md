@@ -14,3 +14,12 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter, view our 
 [online documentation](https://flutter.io/docs), which offers tutorials, 
 samples, guidance on mobile development, and a full API reference.
+
+## 完成内容
+
+- [] 计数器示例
+- [] 路由管理
+- [] 包管理
+- [] 资源管理
+- [] 调试Flutter App
+- [] Dart线程模型及异常捕获
