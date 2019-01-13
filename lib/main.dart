@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
+import 'dart:developer';
 
 void main() => runApp(MyApp());
 
@@ -94,6 +95,13 @@ class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
   void _incrementCounter() {
+    final _tmp = {
+      'as': 1,
+      'asc': 2,
+      'arr': [1, 2, 3]
+    };
+    print(_tmp);
+    // debugDumpApp();
     setState(() {
       // This call to setState tells the Flutter framework that something has
       // changed in this State, which causes it to rerun the build method below
