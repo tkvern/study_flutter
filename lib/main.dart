@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:english_words/english_words.dart';
 
 void main() => runApp(MyApp());
 
@@ -18,9 +19,55 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.teal,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      // 注册路由表
+      routes: {
+        'new_page': (context) => NewRoute(),
+        'tip_widgets': (context) => EchoRoute('内容固定')
+      },
+      home: MyHomePage(title: '雷达'),
+    );
+  }
+}
+
+class NewRoute extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('AI分析'),
+      ),
+      body: Center(
+        child: Text('This is new route'),
+      ),
+    );
+  }
+}
+
+class RandomWordsWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // 生成随机字符串
+    final wordPair = new WordPair.random();
+    return Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: new Text(wordPair.toString()));
+  }
+}
+
+class EchoRoute extends StatelessWidget {
+  EchoRoute(this.tip);
+  final String tip;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Echo route'),
+      ),
+      body: Center(
+        child: Text(tip),
+      ),
     );
   }
 }
@@ -98,6 +145,21 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.display1,
             ),
+            FlatButton(
+              child: Text('open new route'),
+              textColor: Colors.teal,
+              onPressed: () {
+                Navigator.pushNamed(context, 'new_page');
+              },
+            ),
+            FlatButton(
+              child: Text('open echo route'),
+              textColor: Colors.teal,
+              onPressed: () {
+                Navigator.pushNamed(context, 'tip_widgets');
+              },
+            ),
+            RandomWordsWidget()
           ],
         ),
       ),
