@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
 // import 'dart:developer';
+import 'package:flutter_blue/flutter_blue.dart';
+
+FlutterBlue flutterBlue = FlutterBlue.instance;
+var scanSubscription = flutterBlue.scan().listen((scanResult) {
+    // do something with scan result
+    print(scanResult);
+});
 
 void main() => runApp(MyApp());
 
@@ -147,6 +154,9 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
+              '这是第一个Flutter 应用',
+            ),
+            Text(
               'You have pushed the button this many times:',
             ),
             Text(
@@ -160,35 +170,20 @@ class _MyHomePageState extends State<MyHomePage> {
               highlightColor: Colors.blue[700],
               colorBrightness: Brightness.dark,
               splashColor: Colors.grey,
-              shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20.0)),
               onPressed: () {
                 // Navigator.pushNamed(context, 'new_page');
               },
             ),
             RaisedButton(
-              child: Text('open echo route'),
+              child: Text('cancel this scan'),
               // textColor: Colors.teal,
               onPressed: () {
-                Navigator.pushNamed(context, 'tip_widgets');
+                scanSubscription.cancel();
+                // Navigator.pushNamed(context, 'tip_widgets');
               },
             ),
-            RandomWordsWidget(),
-            Image.asset('assets/images/10667077.jpeg'),
-            Text(
-              "Try running your application with \"flutter run\". You'll see the" +
-              "application has a blue toolbar. Then, without quitting the app, try" +
-              "changing the primarySwatch below to Colors.green and then invoke" +
-              "\"hot reload\" (press \"r\" in the console where you ran \"flutter run\"," +
-              "or simply save your changes to \"hot reload\" in a Flutter IDE)." +
-              "Notice that the counter didn't reset back to zero; the application" +
-              "is not restarted.",
-              maxLines: 5,
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(
-                fontSize: 18,
-                color: Colors.red
-              ),
-            )
           ],
         ),
       ),
